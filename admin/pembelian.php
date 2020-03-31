@@ -27,7 +27,7 @@
 			<td><?php echo $data['tanggal_pembelian'] ?></td>
 			<td><?php echo $data['total_pembelian'] ?></td>
 			<td>
-				<a href="" class="btn btn-info">Detail</a>
+				<a href="index.php?halaman=detail&id=<?php echo $data['id_pembelian'] ?>" class="btn btn-info">Detail</a>
 			</td>
 		</tr>
 

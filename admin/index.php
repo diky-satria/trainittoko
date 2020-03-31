@@ -73,8 +73,8 @@ font-size: 16px;"> Last access : 30 May 2014 &nbsp; <a href="login.html" class="
                         include 'pelanggan.php';
                     }elseif($_GET['halaman'] == 'pembelian'){
                         include 'pembelian.php';
-                    }elseif($_GET['halaman'] == 'logout'){
-                        include 'logout.php';
+                    }elseif($_GET['halaman'] == 'detail'){
+                        include 'detail.php';
                     }
                 }else{
                     include 'home.php';
