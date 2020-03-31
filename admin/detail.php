@@ -7,7 +7,7 @@
 	$data = $sql->fetch_assoc();
 
  ?>
-<h2>halaman detail</h2>
+<h2>Data detail</h2>
 
 <pre><?php print_r($data); ?></pre>
 

@@ -1,8 +1,9 @@
-<h2>halaman produk</h2>
+<h2>Data produk</h2>
 
 <table id="example" class="table table-striped table-bordered" style="width:100%">
 	<thead>
 		<tr>
+			<th>No</th>
 			<th>Nama Produk</th>
 			<th>Harga Produk</th>
 			<th>Berat Produk</th>
@@ -24,8 +25,11 @@
 		<tr>
 			<td><?php echo $no++ ?></td>
 			<td><?php echo $data['nama_produk'] ?></td>
+			<td><?php echo number_format($data['harga_produk'], '0','.','.') ?></td>
 			<td><?php echo $data['berat_produk'] ?></td>
-			<td><?php echo $data['foto_produk'] ?></td>
+			<td>
+				<img width="60" src="../foto/<?php echo $data['foto_produk'] ?>">
+			</td>
 			<td><?php echo $data['deskripsi_produk'] ?></td>
 			<td>
 				<a href="" class="btn btn-success">Ubah</a>
@@ -37,3 +41,4 @@
 
 	</tbody>
 </table>
+<a href="index.php?halaman=tambahProduk" class="btn btn-primary">Tambah</a>

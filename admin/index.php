@@ -75,6 +75,8 @@ font-size: 16px;"> Last access : 30 May 2014 &nbsp; <a href="login.html" class="
                         include 'pembelian.php';
                     }elseif($_GET['halaman'] == 'detail'){
                         include 'detail.php';
+                    }elseif($_GET['halaman'] == 'tambahProduk'){
+                        include 'tambahProduk.php';
                     }
                 }else{
                     include 'home.php';
