@@ -32,8 +32,8 @@
 			</td>
 			<td><?php echo $data['deskripsi_produk'] ?></td>
 			<td>
-				<a href="" class="btn btn-success">Ubah</a>
-				<a href="" class="btn btn-danger">Hapus</a>
+				<a href="index.php?halaman=ubahProduk&id=<?php echo $data['id_produk'] ?>" class="btn btn-success">Ubah</a>
+				<a onclick="return confirm('yakin ingin menghapus ?')" href="index.php?halaman=hapusProduk&id=<?php echo $data['id_produk'] ?>" class="btn btn-danger">Hapus</a>
 			</td>
 		</tr>
 

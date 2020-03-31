@@ -37,11 +37,12 @@
 
 		$foto = $_FILES['foto']['name'];
 		$lokasi = $_FILES['foto']['tmp_name'];
-		move_uploaded_file($lokasi, "../foto/".$foto);
+		move_uploaded_file($lokasi, "../foto/".$foto);	
 
-		$sql = $koneksi->query("INSERT INTO produk (nama_produk, harga_produk, berat_produk, foto_produk, deskripsi_produk) VALUES ('$nama','$harga','$berat','$foto','$deskripsi')");
+		if(!empty($foto)){
 
-		if($sql){
+			$sql = $koneksi->query("INSERT INTO produk (nama_produk, harga_produk, berat_produk, foto_produk, deskripsi_produk) VALUES ('$nama','$harga','$berat','$foto','$deskripsi')");
+
 			?>
 
 			<script type="text/javascript">
@@ -51,11 +52,14 @@
 
 			<?php
 		}else{
+
+			$sql2 = $koneksi->query("INSERT INTO produk (nama_produk, harga_produk, berat_produk, foto_produk, deskripsi_produk) VALUES ('$nama','$harga','$berat','dadu.png','$deskripsi')");
+
 			?>
 
 			<script type="text/javascript">
 			alert('Produk berhasil ditambahkan');
-			window.location.href="index.php?halaman=tambahProduk";
+			window.location.href="index.php?halaman=produk";
 			</script>
 
 			<?php 
