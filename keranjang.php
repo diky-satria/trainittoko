@@ -4,6 +4,17 @@
 	session_start();
 	$koneksi = new mysqli("localhost","root","","trainittoko");
 
+	if(!$_SESSION['keranjang']){
+		?>
+
+		<script type="text/javascript">
+		alert('Anda belum memilih barang');
+		window.location.href="index.php";
+		</script>
+
+		<?php
+	}else{
+
  ?>
 <!DOCTYPE html>
 <html>
@@ -94,3 +105,5 @@
 
 </body>
 </html>
+
+<?php } ?>
