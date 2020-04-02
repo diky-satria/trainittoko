@@ -21,8 +21,8 @@
           
           <li><a href="index.php">Home</a></li>
           <li><a href="keranjang.php">Keranjang</a></li>
-          <li><a href="">Login</a></li>
-          <li><a href="">Checkout</a></li>
+          <li><a href="login.php">Login</a></li>
+          <li><a href="checkout.php">Checkout</a></li>
           
         </ul>
         
@@ -82,8 +82,8 @@
 
 				</tbody>
 			</table>
-			<a href="" class="btn btn-default">Lanjutkan Belanja</a>
-			<a href="" class="btn btn-primary">Checkout</a>
+			<a href="index.php" class="btn btn-default">Lanjutkan Belanja</a>
+			<a href="checkout.php" class="btn btn-primary">Checkout</a>
     	</div>
     </div>
   </div>

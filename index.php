@@ -19,8 +19,8 @@
           
           <li><a href="index.php">Home</a></li>
           <li><a href="keranjang.php">Keranjang</a></li>
-          <li><a href="">Login</a></li>
-          <li><a href="">Checkout</a></li>
+          <li><a href="login.php">Login</a></li>
+          <li><a href="checkout.php">Checkout</a></li>
           
         </ul>
         
