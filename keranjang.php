@@ -46,6 +46,7 @@
 						<th>Harga</th>
 						<th>Jumlah</th>
 						<th>Sub-Total</th>
+						<th>Aksi</th>
 					</tr>
 				</thead>
 				<tbody>
@@ -65,6 +66,9 @@
 						<td><?php $subtotal =$data['harga_produk']*$jumlah; 
 						echo number_format($subtotal);
 						?></td>
+						<td>
+							<a href="hapusKeranjang.php?id=<?php echo $id ?>" class="btn btn-danger btn-sm">Hapus</a>
+						</td>
 					</tr>
 
 					<?php 
@@ -77,7 +81,7 @@
 					<tr>
 						<th colspan="3">Total</th>
 						<td><?php echo $total_barang ?></td>
-						<td><?php echo number_format($total_bayar) ?></td>
+						<td colspan="2"><?php echo number_format($total_bayar) ?></td>
 					</tr>
 
 				</tbody>
