@@ -17,8 +17,8 @@
     
         <ul class="nav navbar-nav">
           
-          <li><a href="">Home</a></li>
-          <li><a href="">Keranjang</a></li>
+          <li><a href="index.php">Home</a></li>
+          <li><a href="keranjang.php">Keranjang</a></li>
           <li><a href="">Login</a></li>
           <li><a href="">Checkout</a></li>
           
@@ -46,7 +46,7 @@
           <div class="caption">
             <h3><?php echo $data['nama_produk'] ?></h3>
             <p>Rp. <?php echo number_format($data['harga_produk'], '0','.','.') ?></p>
-            <a href="" class="btn btn-primary">Beli</a>
+            <a href="beli.php?id=<?php echo $data['id_produk'] ?>" class="btn btn-primary">Beli</a>
           </div>
         </div>
       </div>
