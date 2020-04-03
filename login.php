@@ -76,7 +76,7 @@
 		$data = $sql->fetch_assoc();
 		$email2 = $data['email_pelanggan'];
 		$password2 = $data['password_pelanggan'];
-
+		
 		if($email == $email2 && $password == $password2){
 
 			$_SESSION['pelanggan'] = $email2;
