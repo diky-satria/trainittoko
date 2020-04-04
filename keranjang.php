@@ -54,6 +54,7 @@
 					<tr>
 						<th>No</th>
 						<th>Nama Barang</th>
+						<th>Berat (Gr)</th>
 						<th>Harga</th>
 						<th>Jumlah</th>
 						<th>Sub-Total</th>
@@ -72,6 +73,7 @@
 					<tr>
 						<td><?php echo $no++ ?></td>
 						<td><?php echo $data['nama_produk'] ?></td>
+						<td><?php echo $data['berat_produk'] ?></td>
 						<td><?php echo number_format($data['harga_produk']) ?></td>
 						<td><?php echo $jumlah ?></td>
 						<td><?php $subtotal =$data['harga_produk']*$jumlah; 
@@ -90,7 +92,7 @@
 
 					<?php }} ?>
 					<tr>
-						<th colspan="3">Total</th>
+						<th colspan="4">Total</th>
 						<td><?php echo $total_barang ?></td>
 						<td colspan="2"><?php echo number_format($total_bayar) ?></td>
 					</tr>

@@ -42,15 +42,32 @@
  <div class="container">
 	<h2>Data detail</h2>
 
-	<strong><?php echo $data['nama_lengkap'] ?></strong>
-	<p>
-		<?php echo $data['telepon_pelanggan'] ?><br>
-		<?php echo $data['email_pelanggan'] ?>
-	</p>
-	<p>
-		Tanggal : <?php echo date('d-M-Y', strtotime($data['tanggal_pembelian'])) ?><br>
-		Total   : Rp.&nbsp;&nbsp;<?php echo number_format($data['total_pembelian'], '0','.','.') ?>
-	</p>
+	<div class="row">
+		<div class="col-md-4">
+			<h3>Pembelian</h3>
+			<strong>Np. Pembelian : <?php echo $data['id_pembelian'] ?></strong>
+			<p>
+				Tanggal : <?php echo date('d-M-Y', strtotime($data['tanggal_pembelian'])) ?><br>
+				Total   : Rp.&nbsp;&nbsp;<?php echo number_format($data['total_pembelian'], '0','.','.') ?>
+			</p>
+		</div>
+		<div class="col-md-4">
+			<h3>Pelanggan</h3>
+			<strong><?php echo $data['nama_lengkap'] ?></strong>
+			<p>
+				<?php echo $data['telepon_pelanggan'] ?><br>
+				<?php echo $data['email_pelanggan'] ?>
+			</p>
+		</div>
+		<div class="col-md-4">
+			<h3>Pengirim</h3>
+			<strong><?php echo $data['nama_kota'] ?></strong>
+			<p>
+				Ongkir Rp. <?php echo $data['tarif'] ?><br>
+				<?php echo $data['alamat_pengiriman'] ?>
+			</p>
+		</div>
+	</div>
 
 	<table class="table table-bordered table-stripped">
 		<thead>
@@ -67,25 +84,25 @@
 			<?php 
 
 				$no =1;
-				$sql2 = $koneksi->query("SELECT * FROM pembelian_produk
-										JOIN produk ON pembelian_produk.id_produk=produk.id_produk
-										WHERE pembelian_produk.id_pembelian='$id'");
+				$sql2 = $koneksi->query("SELECT * FROM pembelian_produk 
+													JOIN pembelian ON pembelian_produk.id_pembelian=pembelian.id_pembelian WHERE pembelian_produk.id_pembelian='$id'");
 				while($data2 = $sql2->fetch_assoc()){
 					$subTotal = $data2['harga_produk']*$data2['jumlah']
 			 ?>
 
 			<tr>
 				<td><?php echo $no++ ?></td>
-				<td><?php echo $data2['nama_produk'] ?></td>
-				<td><?php echo number_format($data2['harga_produk'], '0','.','.') ?></td>
+				<td><?php echo $data2['nama_barang'] ?></td>
+				<td><?php echo number_format($data2['harga'], '0','.','.') ?></td>
 				<td><?php echo $data2['jumlah'] ?></td>
-				<td><?php echo number_format($subTotal, '0','.','.') ?></td>
+				<td><?php echo number_format($data2['harga'], '0','.','.') ?></td>
 			</tr>
 
 			<?php 
 
 				$jumlah_barang = $jumlah_barang + $data2['jumlah'];
 				$jumlah_bayar = $jumlah_bayar + $subTotal;
+				$total = $data2['sub_harga'];
 
 			 ?>
 
@@ -99,7 +116,7 @@
 				</td>
 				<td>
 					<?php 
-						echo $jumlah_bayar;
+						echo number_format($data['total_pembelian']);
 					 ?>
 				</td>
 			</tr>
@@ -110,7 +127,7 @@
 	<div class="row">
 		<div class="col-md">
 			<div class="alert alert-info">
-				Silahkan lakukan pembayaran sebesar <?php echo number_format($jumlah_bayar) ?> ke 123456
+				Silahkan lakukan pembayaran sebesar <?php echo number_format($data['total_pembelian']) ?> ke 123456
 			</div>
 		</div>
 	</div>
