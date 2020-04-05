@@ -66,7 +66,13 @@
 		if($email == $email2 && $password == $password2){
 
 			$_SESSION['pelanggan'] = $email2;
-			header('location:checkout.php');
+
+			if(isset($_SESSION['keranjang'])){
+				header('location:checkout.php');	
+			}else{
+				header('location:riwayat.php');
+			}
+
 
 		}else{
 			?>

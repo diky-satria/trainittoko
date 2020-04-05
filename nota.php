@@ -1,5 +1,6 @@
 <?php 
 	
+	session_start();
 	error_reporting(0);
 	include 'koneksi.php';
 
@@ -20,7 +21,7 @@
 	$sql = $koneksi->query("SELECT * FROM pembelian
 							JOIN pelanggan ON pembelian.id_pelanggan=pelanggan.id_pelanggan
 							WHERE pembelian.id_pembelian='$id'");
-	$data = $sql->fetch_assoc();
+	$data = $sql->fetch_assoc();	
 
  ?>
 
