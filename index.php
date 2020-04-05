@@ -1,6 +1,6 @@
 <?php 
   
-  $koneksi = new mysqli("localhost","root","","trainittoko");
+  include 'koneksi.php';
 
  ?>
 <!DOCTYPE html>
@@ -47,6 +47,7 @@
             <h3><?php echo $data['nama_produk'] ?></h3>
             <p>Rp. <?php echo number_format($data['harga_produk'], '0','.','.') ?></p>
             <a href="beli.php?id=<?php echo $data['id_produk'] ?>" class="btn btn-primary">Beli</a>
+            <a href="detail.php?id=<?php echo $data['id_produk'] ?>" class="btn btn-default">Detail</a>
           </div>
         </div>
       </div>

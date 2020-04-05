@@ -1,6 +1,6 @@
 <?php 
 	session_start();
-	$koneksi = new mysqli("localhost","root","","trainittoko");
+	include 'koneksi.php';
 
 	if(isset($_SESSION['pelanggan'])){
 		header('location:checkout.php');

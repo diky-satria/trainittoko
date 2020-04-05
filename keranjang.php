@@ -2,7 +2,7 @@
 	
 	error_reporting(0);
 	session_start();
-	$koneksi = new mysqli("localhost","root","","trainittoko");
+	include 'koneksi.php';
 
 	if(!$_SESSION['keranjang']){
 		?>
