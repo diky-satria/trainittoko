@@ -54,11 +54,12 @@ font-size: 16px;"> Last access : 30 May 2014 &nbsp; <a href="login.html" class="
 					</li>
 				
 					
-                    <li><a href="index.php"><i class="fa fa-dashboard fa-3x"></i> Home</a></li>
-                    <li><a href="index.php?halaman=produk"><i class="fa fa-dashboard fa-3x"></i> Produk</a></li>
-                    <li><a href="index.php?halaman=pembelian"><i class="fa fa-dashboard fa-3x"></i> Pembelian</a></li>
-                    <li><a href="index.php?halaman=pelanggan"><i class="fa fa-dashboard fa-3x"></i> Pelanggan</a></li>
-                    <li><a href="logout.php"><i class="fa fa-dashboard fa-3x"></i> Logout</a></li>
+                    <li><a href="index.php"><i class="fa fa-dashboard"></i> Home</a></li>
+                    <li><a href="index.php?halaman=produk"><i class="fa fa-dashboard"></i> Produk</a></li>
+                    <li><a href="index.php?halaman=pembelian"><i class="fa fa-dashboard"></i> Pembelian</a></li>
+                    <li><a data-toggle="modal" data-target="#exampleModal"><i class="fa fa-dashboard"></i> Laporan</a></li>
+                    <li><a href="index.php?halaman=pelanggan"><i class="fa fa-dashboard"></i> Pelanggan</a></li>
+                    <li><a href="logout.php"><i class="fa fa-dashboard"></i> Logout</a></li>
                      
                 </ul>
                
@@ -88,6 +89,8 @@ font-size: 16px;"> Last access : 30 May 2014 &nbsp; <a href="login.html" class="
                         include 'ubahProduk.php';
                     }elseif($_GET['halaman'] == 'konfirmasi'){
                         include 'konfirmasi.php';
+                    }elseif($_GET['halaman'] == 'laporan'){
+                        include 'laporan.php';
                     }
                 }else{
                     include 'home.php';
@@ -124,6 +127,38 @@ font-size: 16px;"> Last access : 30 May 2014 &nbsp; <a href="login.html" class="
             $('#example').DataTable();
         } );
     </script>
+
+    <!-- Modal -->
+    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">Laporan Pembelian</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            
+            <form method="post" action="index.php?halaman=laporan">
+                <div class="form-group">
+                    <label>Tanggal Mulai</label>
+                    <input type="date" name="tglm" class="form-control">
+                </div>
+                <div class="form-group">
+                    <label>Tanggal Selesai</label>
+                    <input type="date" name="tgls" class="form-control">
+                </div>
+
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Kembali</button>
+            <button type="submit" name="lihat" class="btn btn-primary">Lihat</button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
    
 </body>
 </html>
