@@ -71,10 +71,9 @@
 
 					$bukti = $_FILES['bukti']['name'];
 					$lokasi = $_FILES['bukti']['tmp_name'];
-					$bukti2 = date('YmdHis').$bukti;
 					move_uploaded_file($lokasi, 'struk_pembayaran/'.$bukti);
 
-					$sql2 = $koneksi->query("INSERT INTO pembayaran (id_pembelian,nama,bank,jumlah,tanggal,bukti) VALUES ('$id','$nama','$bank','$jumlah','$tanggal','$bukti2')");
+					$sql2 = $koneksi->query("INSERT INTO pembayaran (id_pembelian,nama,bank,jumlah,tanggal,bukti) VALUES ('$id','$nama','$bank','$jumlah','$tanggal','$bukti')");
 
 					$sql3 = $koneksi->query("UPDATE pembelian SET status_pembelian = 'sudah bayar' WHERE id_pembelian='$id'");
 

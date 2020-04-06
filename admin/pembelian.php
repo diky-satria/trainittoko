@@ -5,6 +5,7 @@
 		<tr>
 			<th>No</th>
 			<th>Nama Pelanggan</th>
+			<th>Status</th>
 			<th>Tanggal Pembelian</th>
 			<th>Total</th>
 			<th>Aksi</th>
@@ -24,10 +25,19 @@
 		<tr>
 			<td><?php echo $no++ ?></td>
 			<td><?php echo $data['nama_lengkap'] ?></td>
+			<td><?php echo $data['status_pembelian'] ?></td>
 			<td><?php echo $data['tanggal_pembelian'] ?></td>
-			<td><?php echo $data['total_pembelian'] ?></td>
+			<td>Rp. <?php echo number_format($data['total_pembelian']) ?></td>
 			<td>
+			<?php 
+
+				if($data['status_pembelian'] != 'pending'):
+			 ?>
 				<a href="index.php?halaman=detail&id=<?php echo $data['id_pembelian'] ?>" class="btn btn-info">Detail</a>
+				<a href="index.php?halaman=konfirmasi&id=<?php echo $data['id_pembelian'] ?>" class="btn btn-success">Konfirmasi</a>
+			<?php else: ?>
+				<a href="index.php?halaman=detail&id=<?php echo $data['id_pembelian'] ?>" class="btn btn-info">Detail</a>
+			<?php endif; ?>
 			</td>
 		</tr>
 

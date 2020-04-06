@@ -86,6 +86,8 @@ font-size: 16px;"> Last access : 30 May 2014 &nbsp; <a href="login.html" class="
                         include 'hapusProduk.php';
                     }elseif($_GET['halaman'] == 'ubahProduk'){
                         include 'ubahProduk.php';
+                    }elseif($_GET['halaman'] == 'konfirmasi'){
+                        include 'konfirmasi.php';
                     }
                 }else{
                     include 'home.php';

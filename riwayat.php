@@ -49,7 +49,14 @@
 						<tr>
 							<td><?php echo $no++ ?></td>
 							<td><?php echo $data2['tanggal_pembelian'] ?></td>
-							<td><?php echo $data2['status_pembelian'] ?></td>
+							<td>
+								<?php echo $data2['status_pembelian'] ?><br>
+								<?php if($data2['resi'] == null): ?>
+									Resi : ---
+								<?php else: ?>
+									Resi : <?php echo $data2['resi'] ?>
+								<?php endif; ?>
+							</td>
 							<td>Rp. <?php echo number_format($data2['total_pembelian']) ?></td>
 							<td>
 								<?php if($data2['status_pembelian'] == 'pending'): ?>
