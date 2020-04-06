@@ -3,6 +3,21 @@
 	session_start();
 	error_reporting(0);
 	include 'koneksi.php';
+	$id = $_GET['id'];
+
+	$ppp = $koneksi->query("SELECT * FROM pembelian WHERE id_pembelian='$id'");
+	$datap = $ppp->fetch_assoc();
+	$idid = $datap['id_pembelian'];
+	$idp = $datap['id_pelanggan'];
+
+	if($id != $idid OR $_SESSION['pelanggan']['id_pelanggan'] != $idp){
+		?>
+		<script type="text/javascript">
+		alert('jangan nakal');
+		window.location.href="riwayat.php";
+		</script>
+		<?php
+	}
 
  ?>
 <!DOCTYPE html>
@@ -17,7 +32,7 @@
 
 <?php 
 	
-	$id = $_GET['id'];
+	
 	$sql = $koneksi->query("SELECT * FROM pembelian
 							JOIN pelanggan ON pembelian.id_pelanggan=pelanggan.id_pelanggan
 							WHERE pembelian.id_pembelian='$id'");

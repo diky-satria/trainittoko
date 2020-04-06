@@ -2,9 +2,9 @@
   
   session_start();
   include 'koneksi.php';
-  $email = $_SESSION['pelanggan'];
+  $pelanggan = $_SESSION['pelanggan'];
 
-  $sql_pelanggan = $koneksi->query("SELECT * FROM pelanggan WHERE email_pelanggan = '$email'");
+  $sql_pelanggan = $koneksi->query("SELECT * FROM pelanggan WHERE email_pelanggan = '$pelanggan[email_pelanggan]'");
   $data = $sql_pelanggan->fetch_assoc();
   $id = $data['id_pelanggan'];
 
@@ -18,10 +18,6 @@
 <body>
 
 <?php include 'navbar.php'; ?>
-
-<pre>
-	<?php print_r($data) ?>
-</pre>
 
 <section>
 	<div class="container">
@@ -56,8 +52,12 @@
 							<td><?php echo $data2['status_pembelian'] ?></td>
 							<td>Rp. <?php echo number_format($data2['total_pembelian']) ?></td>
 							<td>
+								<?php if($data2['status_pembelian'] == 'pending'): ?>
 								<a href="nota.php?id=<?php echo $data2['id_pembelian'] ?>" class="btn btn-primary">Nota</a>
-								<a href="" class="btn btn-success">Pembayaran</a>
+								<a href="pembayaran.php?id=<?php echo $data2['id_pembelian'] ?>" class="btn btn-success">Pembayaran</a>
+							<?php else: ?>
+								<a href="nota.php?id=<?php echo $data2['id_pembelian'] ?>" class="btn btn-primary">Nota</a>
+							<?php endif; ?>
 							</td>
 						</tr>
 						<?php } ?>

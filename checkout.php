@@ -28,15 +28,10 @@
 
 <?php include 'navbar.php'; ?>
 
-  <!-- ini untuk pre -->
-  <?php 
-
-    $session_pelanggan = $_SESSION['pelanggan'];
-    $sql_pelanggan = $koneksi->query("SELECT * FROM pelanggan WHERE email_pelanggan='$session_pelanggan'");
-    $get_pelanggan = $sql_pelanggan->fetch_assoc();
-
-   ?>
-   <!-- akhir untuk pre -->
+  <pre>
+    <?php print_r($_SESSION['pelanggan']) ?>
+    <?php print_r($_SESSION['id_pelanggan']) ?>
+  </pre>
 
   <!-- kontent -->
   <div class="container">
@@ -99,11 +94,11 @@
           <div class="row">
             <div class="col-md-4">
               <label>Nama</label>
-              <input type="text" name="nama" class="form-control" readonly="" value="<?php echo $get_pelanggan['nama_lengkap'] ?>">
+              <input type="text" name="nama" class="form-control" readonly="" value="<?php echo $_SESSION['pelanggan']['nama_lengkap'] ?>">
             </div>
             <div class="col-md-4">
               <label>Telepon</label>
-              <input type="text" name="telepon" class="form-control" readonly="" value="<?php echo $get_pelanggan['telepon_pelanggan'] ?>">
+              <input type="text" name="telepon" class="form-control" readonly="" value="<?php echo $_SESSION['pelanggan']['telepon_pelanggan'] ?>">
             </div>
             <div class="col-md-4">
               <label>Ongkir</label>
@@ -145,7 +140,7 @@
 
   if(isset($_POST['checkout'])){
 
-    $pelanggan = $get_pelanggan['id_pelanggan'];
+    $pelanggan = $_SESSION['pelanggan']['id_pelanggan'];
     $tgl_pembelian = date('Y-m-d');
     $ongkir = $_POST['ongkir'];
     $alamat = $_POST['alamat'];
@@ -179,7 +174,7 @@
       $subHarga = $jumlah_produk*$dataProduk['harga_produk'];
       
       //proses insert barang yang dibeli
-      $koneksi->query("INSERT INTO pembelian_produk (id_pembelian,id_produk,jumlah,nama_barang,harga,berat,sub_berat,sub_harga) VALUES ('$id_pembelian_barusan','$id_produk','$jumlah_produk','$produkNama','$produkHarga','$produkBerat','$subBerat','$subHarga')");
+      $koneksi->query("INSERT INTO pembelian_produk (id_pembelian,id_pelanggan,id_produk,jumlah,nama_barang,harga,berat,sub_berat,sub_harga) VALUES ('$id_pembelian_barusan','$pelanggan','$id_produk','$jumlah_produk','$produkNama','$produkHarga','$produkBerat','$subBerat','$subHarga')");
 
     }
 
