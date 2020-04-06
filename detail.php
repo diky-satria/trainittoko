@@ -33,13 +33,14 @@
 				<h2><?php echo $data['nama_produk'] ?></h2>
 				<h4>Rp. <?php echo number_format($data['harga_produk']) ?></h4>
 				<p><?php echo $data['deskripsi_produk'] ?></p>
+				<h4 style="font-weight:bold;color:red;">Stok : <?php echo $data['stok_produk'] ?></h4>
 
 				<form method="post">
 					<label>Jumlah</label>
 					<div class="form-group">
-						<input type="number" min="1" class="form-control" name="jumlah">
-						<button type="submit" class="btn btn-primary" name="beli">Beli</button>	
+						<input type="number" min="1" max="<?php echo $data['stok_produk'] ?>" class="form-control" name="jumlah">
 					</div>
+						<button type="submit" class="btn btn-primary" name="beli">Beli</button>	
 				</form>
 
 				<?php 

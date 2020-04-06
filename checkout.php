@@ -176,6 +176,9 @@
       //proses insert barang yang dibeli
       $koneksi->query("INSERT INTO pembelian_produk (id_pembelian,id_pelanggan,id_produk,jumlah,nama_barang,harga,berat,sub_berat,sub_harga) VALUES ('$id_pembelian_barusan','$pelanggan','$id_produk','$jumlah_produk','$produkNama','$produkHarga','$produkBerat','$subBerat','$subHarga')");
 
+      //update jumlah produk
+      $koneksi->query("UPDATE produk SET stok_produk=(stok_produk-$jumlah_produk) WHERE id_produk='$id_produk'");
+
     }
 
     //setelah di insert lalu halaman keranjang kosong, maka dihapus
