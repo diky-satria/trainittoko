@@ -7,19 +7,37 @@
 	$data = $sql->fetch_assoc();
 
  ?>
+
 <h2>Data detail</h2>
 
-<pre><?php print_r($data); ?></pre>
+ <div class="row">
+ 	<div class="col-md-4">
+ 		<h3>Pelanggan</h3>
+		<p>
+ 			<?php echo $data['nama_lengkap'] ?><br>
+			<?php echo $data['telepon_pelanggan'] ?><br>
+			<?php echo $data['email_pelanggan'] ?>
+		</p>
+ 	</div>
+ 	<div class="col-md-4">
+ 		<h3>Pembelian</h3>
+ 		<p>
+			Tanggal : <?php echo date('d-M-Y', strtotime($data['tanggal_pembelian'])) ?><br>
+			Total   : Rp.&nbsp;&nbsp;<?php echo number_format($data['total_pembelian'], '0','.','.') ?><br>
+			Status  : <?php echo $data['status_pembelian'] ?>
+		</p>
+ 	</div>
+ 	<div class="col-md-4">
+ 		<h3>Pengiriman</h3>
+ 		<p>
+ 			Kota   :<?php echo $data['nama_kota'] ?><br>
+			Detail :<?php echo $data['alamat_pengiriman'] ?><br>
+			Ongkir :<?php echo number_format($data['tarif']) ?>
+		</p>
+ 	</div>
+ </div>
 
-<strong><?php echo $data['nama_lengkap'] ?></strong>
-<p>
-	<?php echo $data['telepon_pelanggan'] ?><br>
-	<?php echo $data['email_pelanggan'] ?>
-</p>
-<p>
-	Tanggal : <?php echo date('d-M-Y', strtotime($data['tanggal_pembelian'])) ?><br>
-	Total   : Rp.&nbsp;&nbsp;<?php echo number_format($data['total_pembelian'], '0','.','.') ?>
-</p>
+<!-- <pre><?php //print_r($data); ?></pre> -->
 
 <table class="table table-bordered table-stripped">
 	<thead>

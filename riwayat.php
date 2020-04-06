@@ -59,12 +59,12 @@
 							</td>
 							<td>Rp. <?php echo number_format($data2['total_pembelian']) ?></td>
 							<td>
-								<?php if($data2['status_pembelian'] == 'pending'): ?>
 								<a href="nota.php?id=<?php echo $data2['id_pembelian'] ?>" class="btn btn-primary">Nota</a>
-								<a href="pembayaran.php?id=<?php echo $data2['id_pembelian'] ?>" class="btn btn-success">Pembayaran</a>
-							<?php else: ?>
-								<a href="nota.php?id=<?php echo $data2['id_pembelian'] ?>" class="btn btn-primary">Nota</a>
-							<?php endif; ?>
+									<?php if($data2['status_pembelian'] == 'pending'): ?>
+								<a href="pembayaran.php?id=<?php echo $data2['id_pembelian'] ?>" class="btn btn-success">Konfirmasi</a>
+									<?php else: ?>
+								<a href="lihat_pembayaran.php?id=<?php echo $data2['id_pembelian'] ?>" class="btn btn-warning">Pembayaran</a>
+								<?php endif; ?>
 							</td>
 						</tr>
 						<?php } ?>
